@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.2.0' unless ENV['CI']
 
-gem 'rails', '4.2.0.beta4'
+gem 'rails', '~> 4.2.0'
 
 gem 'bootstrap-sass'
 gem 'cancancan'
@@ -16,7 +16,7 @@ gem 'omniauth-twitter'
 gem 'pg'
 gem 'pry-rails'
 gem 'redcarpet'
-gem 'sass-rails', '~> 5.0.0.beta1'
+gem 'sass-rails'
 
 group :assets do
   gem 'coffee-rails'
