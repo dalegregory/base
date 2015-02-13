@@ -2,7 +2,9 @@ require: rubocop-rspec
 
 AllCops:
   Exclude:
+    - bin/*
     - db/schema.rb
+    - lib/templates/**/*
     - vendor/**/*
   RunRailsCops: true
 
@@ -48,9 +50,13 @@ Style/ClassAndModuleChildren:
 Style/CollectionMethods:
   Enabled: true
   PreferredMethods:
+    detect: 'detect'
     inject: 'inject'
 
 Style/Documentation:
+  Enabled: false
+
+Style/EachWithObject:
   Enabled: false
 
 Style/EmptyLinesAroundClassBody:
@@ -70,7 +76,7 @@ Style/PredicateName:
 
 Style/PercentLiteralDelimiters:
   PreferredDelimiters:
-    '%':  '[]'
+    '%':  '{}'
     '%Q': '[]'
     '%W': '[]'
     '%i': '[]'
@@ -91,6 +97,12 @@ Style/RescueModifier:
 
 Style/Semicolon:
   AllowAsExpressionSeparator: true
+
+Style/SingleLineBlockParams:
+  Methods:
+    - inject:
+      - a
+      - t
 
 Style/SingleSpaceBeforeFirstArg:
   Enabled: false
