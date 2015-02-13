@@ -15,15 +15,15 @@ module Haml::Filters
     include Haml::Filters::Base
 
     def render text
-      renderer = SyntaxRenderer.new optionize([ :with_toc_data, :xhtml ])
+      renderer = SyntaxRenderer.new optionize(%i[ with_toc_data xhtml ])
 
-      markdown = Redcarpet::Markdown.new renderer, optionize([
-        :autolink,
-        :fenced_code_blocks,
-        :no_intra_emphasis,
-        :space_after_headers,
-        :strikethrough,
-        :tables
+      markdown = Redcarpet::Markdown.new renderer, optionize(%i[
+        autolink
+        fenced_code_blocks
+        no_intra_emphasis
+        space_after_headers
+        strikethrough
+        tables
       ])
 
       markdown.render text
