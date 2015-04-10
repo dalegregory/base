@@ -15,7 +15,6 @@ gem 'omniauth-github'
 gem 'omniauth-twitter'
 gem 'pg'
 gem 'pry-rails'
-gem 'redcarpet'
 gem 'sass-rails'
 
 group :assets do
