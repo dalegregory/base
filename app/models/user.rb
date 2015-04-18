@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
     login = conditions.delete(:login)
     query = where(conditions)
     if login
-      query.where('lower(username) = :login OR lower(email) = :login', login: login.downcase).first
+      query.find_by('lower(username) = :login OR lower(email) = :login', login: login.downcase)
     else
       query.first
     end
