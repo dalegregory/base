@@ -237,7 +237,6 @@ GEM
     rainbow (2.0.0)
     raindrops (0.13.0)
     rake (10.4.2)
-    redcarpet (3.2.2)
     responders (2.1.0)
       railties (>= 4.2.0, < 5)
     rspec-core (3.2.0)
@@ -355,7 +354,6 @@ DEPENDENCIES
   pry-rails
   rails (~> 4.2.0)
   rails_12factor
-  redcarpet
   rspec-its
   rspec-rails
   rubocop
