@@ -3,13 +3,18 @@
 # for example lib/tasks/capistrano.rake, and they will automatically be available to Rake.
 
 require File.expand_path('../config/application', __FILE__)
-require 'rubocop/rake_task'
-
 DevFuBase::Application.load_tasks
 
-RuboCop::RakeTask.new do |task|
-  task.formatters = %w[ simple ]
-end
+begin
+  require 'rubocop/rake_task'
 
-task('spec').clear # remove default spec task
-RSpec::Core::RakeTask.new :spec => :rubocop
+  RuboCop::RakeTask.new do |task|
+    task.options << '--auto-correct' unless ENV['CI'] == 'true'
+    task.formatters   = %w[ simple ]
+  end
+
+  task('spec').clear # remove default spec task
+  RSpec::Core::RakeTask.new :spec => :rubocop
+rescue LoadError
+  puts 'Rubocop unavailable'
+end
